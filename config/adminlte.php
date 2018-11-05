@@ -116,7 +116,7 @@ return [
         ],
         [
             'text'        => 'Crear Encuesta',
-            'route'       => 'dashboard',
+            'url'       => 'crearencuesta',
             'icon'        => 'file',
         ],
         [
