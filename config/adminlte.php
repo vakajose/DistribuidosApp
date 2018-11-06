@@ -121,8 +121,17 @@ return [
         ],
         [
             'text'        => 'Estadisticas',
-            'route'       => 'estadisticas',
             'icon'        => 'file',
+            'submenu'     => [
+                            [
+                            'text'=> 'General',
+                            'route'=>'estadisticas'
+                            ],
+                            [
+                            'text'=> 'Por encuesta',
+                            'route'=>'estadisticas'
+                            ]
+                            ]
         ],
         
         // 'ACCOUNT SETTINGS',

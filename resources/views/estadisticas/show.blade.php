@@ -15,10 +15,17 @@
 				<h3 class="box-title">Total de encuestas respondidas</h3>
 			</div>
 			<div class="box-body">
-				<canvas id="pieChart" height="260px" "></canvas>
+				<canvas id="pieChart" height="100%" "></canvas>
 			</div>
 		</div>
 	</div>
 </div>
 
+@stop
+
+@section('js')
+<script src="{{ asset('js/estadisticas.js') }}"></script>
+<script>
+	var pieData = @json($pieData);
+</script>
 @stop
