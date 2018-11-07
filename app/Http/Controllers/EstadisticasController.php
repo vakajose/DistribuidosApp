@@ -13,10 +13,22 @@ class EstadisticasController extends Controller
     {
     	$labels = Encuesta::pluck('titulo')->all();
     	$data = array();
-    	foreach ($labels as $label) {
-    		$data[] = rand(10,40);
+    	$encuestas = Encuesta::all();
+    	foreach ($encuestas as $enc) {
+    		$data[] = $enc->formularios->count();
     	}
+    	// foreach ($labels as $label) {
+    	// 	$data[] = rand(10,40);
+    	// }
     	
     	return view('estadisticas.show')->with(['pieData' => [$labels,$data]]);
+    }
+
+    public function showPorEncuesta(){
+    	$encuestas = Encuesta::all();
+    	// if(!is_null($encuesta)){
+    	// 	$encuesta = Encuesta::find($encuesta)->get();
+    	// }
+    	return view('estadisticas.showPorEncuesta')->with(['encuestas' => $encuestas]);
     }
 }

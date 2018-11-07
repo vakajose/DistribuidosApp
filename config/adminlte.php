@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Distribuidos',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => 'Encuestas',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => 'ENC',
 
     /*
     |--------------------------------------------------------------------------
@@ -129,7 +129,7 @@ return [
                             ],
                             [
                             'text'=> 'Por encuesta',
-                            'route'=>'estadisticas'
+                            'route'=>'estadisticasPorEncuesta'
                             ]
                             ]
         ],

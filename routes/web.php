@@ -26,3 +26,5 @@ Route::get('getlista','WebServiceController@getLista');
 Route::post('setRespuestaEncuesta','WebServiceController@setRespuestaEncuesta');
 //
 Route::name('estadisticas')->get('estadisticas','EstadisticasController@show');
+Route::name('estadisticasPorEncuesta')->get('estadisticasDetail', 'EstadisticasController@showPorEncuesta');
+//Route::name('estadisticasPorEncuesta')->post('estadisticasDetail\{encuesta?}', function($encuesta = null){ return $encuesta;},'EstadisticasController@showPorEncuesta');

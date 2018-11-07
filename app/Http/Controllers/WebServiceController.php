@@ -104,6 +104,7 @@ class WebServiceController extends Controller
                 $count++;
             }
         }
+        
         $Formulario = $this->crearFormulario($postRequest['fecha'], 'si', $postRequest['latitud'], $postRequest['longitud'], $postRequest['encuestado'], $postRequest['user_id'], $postRequest['encuesta_id']);
     
         for ($i=1; $i < count($idsArray); $i++) { 
