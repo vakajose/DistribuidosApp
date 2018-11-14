@@ -16,8 +16,6 @@ class Formulario extends Migration
         Schema::create('formulario', function (Blueprint $table) {
             $table->increments('id');
             $table->string('fecha');
-            $table->string('duracion');
-            $table->string('observacion');
             $table->string('completada');
             $table->string('latitud');
             $table->string('longitud');
