@@ -18,4 +18,7 @@ class Encuesta extends Model
     	 return $this->hasMany('App\Formulario');
 
     }
+    public function respuestas(){
+        return $this->hasMany('App\Respuesta');
+    }
 }

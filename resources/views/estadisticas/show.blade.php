@@ -8,18 +8,17 @@
 
 @section('content')
 
-<div class="row">
-	<div class="container">
-		<div class="box box-info" >
-			<div class="box-header with-border">
-				<h3 class="box-title">Total de encuestas respondidas</h3>
-			</div>
-			<div class="box-body">
-				<canvas id="pieChart" height="100%" "></canvas>
-			</div>
+
+
+	<div class="box box-info box-solid" >
+		<div class="box-header with-border">
+			<h3 class="box-title">Total de encuestas respondidas</h3>
+		</div>
+		<div class="box-body">
+			<canvas id="pieChart" height="100%" "></canvas>
 		</div>
 	</div>
-</div>
+	
 
 @stop
 

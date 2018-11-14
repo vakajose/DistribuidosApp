@@ -26,6 +26,7 @@ $(document).ready(function($) {
 	});	
   console.log(pieData);
 });
+
 function getRandColor(){
 	var colors =['#C46F6F','#A2C46F','#562846','#A4F857','#B66FC4','#4FD6DD'];
 	return colors[Math.floor(Math.random()*colors.length)];
