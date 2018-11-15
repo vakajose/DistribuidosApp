@@ -129,7 +129,7 @@ return [
                             ],
                             [
                             'text'=> 'Por encuesta',
-                            'url'=>'estadisticasDetail/2'
+                            'route'=>'estadisticasPorEncuesta.index'
                             ]
                             ]
         ],

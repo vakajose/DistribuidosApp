@@ -20,14 +20,9 @@ class EstadisticasController extends Controller
     	return view('estadisticas.show')->with(['pieData' => [$labels,$data]]);
     }
 
-    public function showPorEncuesta($encuesta){
+    public function showPorEncuesta(){
     	$encuestas = Encuesta::all();
-        if($encuesta==0){
-            $encuesta = Encuesta::first();
-        }else{
-            $encuesta = Encuesta::find($encuesta);
-        }
-    	return view('estadisticas.showPorEncuesta')->with(['encuestas' => $encuestas,'encuesta'=> $encuesta,'datas'=>array(),'labels'=>array(),'back'=>array(),'border'=>array()]);
+    	return view('estadisticas.showPorEncuesta')->with(['encuestas' => $encuestas]);
     }
     public function changeEncuesta(Request $request){
         $encuesta = Encuesta::find($request->encuesta);
@@ -47,10 +42,25 @@ class EstadisticasController extends Controller
                     $temp = explode(',', $dom);
                     $label = array_merge($label,$temp);
                     //conteo de respuestas
-                    foreach ($label as $key => $lab) {
-                        $respuestas = Respuesta::where('opcion_id',$opcion->id)->where('texto',$lab )->get();
-                        $count = $respuestas->count();
-                        $data[] = $count;
+                    if ($cerrada->multiple =='si') {
+                        $respuestas = Respuesta::where('opcion_id',$opcion->id)->pluck('texto')->toArray();
+                        
+                        foreach ($label as $key => $lab) {
+                            $i = 0;
+                            foreach ($respuestas as $res) {
+                                $sp = explode(',',$res);
+                                if(in_array($lab, $sp)){
+                                    $i++;
+                                }
+                            }
+                            $data[] = $i;
+                        }
+                    }else{                    
+                        foreach ($label as $key => $lab) {
+                            $respuestas = Respuesta::where('opcion_id',$opcion->id)->where('texto',$lab )->get();
+                            $count = $respuestas->count();
+                            $data[] = $count;
+                        }
                     }
                     
                 }else{
@@ -67,7 +77,8 @@ class EstadisticasController extends Controller
             $datas[] = $data;
 
         }
-        dd($datas);
-        return redirect()->route('estadisticasPorEncuesta.index', ['encuestas'=>Encuesta::all(),'encuesta' => $encuesta, 'datas'=>$datas,'labels'=>$labels,'back'=>$back,'border'=>$border]);
+       
+        // return redirect()->route('estadisticasPorEncuesta.index', ['encuestas'=>Encuesta::all(),'encuesta' => $encuesta, 'datas'=>$datas,'labels'=>$labels]);
+        return view('estadisticas.showPorEncuesta')->with(['encuestas' => Encuesta::all(),'encuesta'=> $encuesta,'datas'=>$datas,'labels'=>$labels]);
     }
 }
