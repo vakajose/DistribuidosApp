@@ -133,6 +133,11 @@ return [
                             ]
                             ]
         ],
+        [
+            'text'        => 'Mapa',
+            'route'       => 'ubicacion.index',
+            'icon'        => 'map',
+        ],
         
         // 'ACCOUNT SETTINGS',
         // [

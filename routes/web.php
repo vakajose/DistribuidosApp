@@ -30,3 +30,4 @@ Route::name('estadisticas')->get('estadisticas','EstadisticasController@show');
 Route::name('estadisticasPorEncuesta.index')->get('estadisticasDetail','EstadisticasController@showPorEncuesta');
 Route::name('estadisticasPorEncuesta.change')->post('estadisticasDetail','EstadisticasController@changeEncuesta');
 
+Route::name('ubicacion.index')->get('ubicaciones','UbicacionController@index');
