@@ -31,3 +31,5 @@ Route::name('estadisticasPorEncuesta.index')->get('estadisticasDetail','Estadist
 Route::name('estadisticasPorEncuesta.change')->post('estadisticasDetail','EstadisticasController@changeEncuesta');
 
 Route::name('ubicacion.index')->get('ubicaciones','UbicacionController@index');
+
+Route::get('gethistorial','WebServiceController@gethistorialreclamo');
