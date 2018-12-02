@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Ubicacion;
+use App\{User,Ubicacion};
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UbicacionController extends Controller
 {
@@ -81,5 +82,21 @@ class UbicacionController extends Controller
     public function destroy(Ubicacion $ubicacion)
     {
         //
+    }
+
+    public function getUsers()
+    {
+        $users = User::all();
+        return json_encode($users);
+    }
+    public function getLastUbicacionbyEstado($estado){
+        $users = User::where('estado',$estado)->pluck('id')->all();
+        $agrupado = Ubicacion::whereIn('user_id',$users)->get()->groupBy('user_id');
+            $ubicaciones = array();
+            foreach ($agrupado as $value) {
+                $ubicaciones[] = $value->last();
+            }
+
+        return json_encode($ubicaciones);
     }
 }

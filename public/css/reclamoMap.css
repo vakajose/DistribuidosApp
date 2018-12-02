@@ -2,3 +2,13 @@
     	height: 600px;
     	min-height: 100%;
       }
+
+.online{
+	color: green;
+}
+.offline{
+	color: red;
+}
+.suspend{
+	color: orange;
+}
